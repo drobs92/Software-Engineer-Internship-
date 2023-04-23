@@ -5,15 +5,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Getter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class NbpApiTableADto {
-private String currency;
-private String code;
-private String effectiveDate;
-private double mid;
+    private String currency;
+    private String code;
+private Set<NbpApiTableARates> rates;
+
 
 
 }

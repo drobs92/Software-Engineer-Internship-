@@ -15,8 +15,6 @@ public class TableAService {
 private final TableAClient tableAClient;
     public TableADto getTableA(){
        return tableAClient.getTableAForCurrencyAndDate("AUD", "2023-04-20");
-        //log.info(response);
-       // return null;
     }
 
 

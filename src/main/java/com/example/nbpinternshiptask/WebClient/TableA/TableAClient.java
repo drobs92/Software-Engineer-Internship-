@@ -13,13 +13,13 @@ public class TableAClient {
     public TableADto getTableAForCurrencyAndDate(String currencyCode, String date){
         NbpApiTableADto nbpApiTableADto= callGetMethodTableA(NbpApiTableADto.class, currencyCode,date);
         return TableADto.builder()
-                .average(nbpApiTableADto.getMid())
+                .average(nbpApiTableADto.getRates().stream().iterator().next().getMid())
                 .currency(nbpApiTableADto.getCurrency())
-                .effectiveDate(nbpApiTableADto.getEffectiveDate())
+                .effectiveDate(nbpApiTableADto.getRates().stream().iterator().next().getEffectiveDate())
                 .code(nbpApiTableADto.getCode())
                 .build();
     }
-private <T> T callGetMethodTableA(Class<T> responseType, Object... objects){
+    private <T> T callGetMethodTableA(Class<T> responseType, Object... objects){
         return restTemplate.getForObject(TABLEA_URL + "{currencyCode}/{date}",responseType,objects);
-}
+    }
 }

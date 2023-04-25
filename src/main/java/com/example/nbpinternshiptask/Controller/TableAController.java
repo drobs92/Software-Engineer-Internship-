@@ -5,6 +5,7 @@ import com.example.nbpinternshiptask.Service.TableAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,5 +17,8 @@ private final TableAService tableAService;
     public TableADto getTableA(){
     return tableAService.getTableA();
 }
-
+@PostMapping("/tableAInput")
+    public TableADto getDataAndCurrencyCode(){
+    return null;//todo take data from user
+}
 }
